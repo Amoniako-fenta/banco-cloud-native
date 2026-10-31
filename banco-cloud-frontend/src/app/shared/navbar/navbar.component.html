@@ -1,0 +1,14 @@
+<nav>
+  <span class="brand">Banco Cloud</span>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+  <ng-container *ngIf="autenticado">
+    <a routerLink="/sucursales" routerLinkActive="active">Sucursales</a>
+    <a routerLink="/cajeros" routerLinkActive="active">Cajeros</a>
+    <a routerLink="/mi-perfil" routerLinkActive="active">Mi perfil</a>
+    <a *ngIf="esAdmin" routerLink="/admin/usuarios" routerLinkActive="active">Usuarios pendientes</a>
+  </ng-container>
+  <div class="spacer"></div>
+  <span *ngIf="autenticado">{{ nombreUsuario }}</span>
+  <button *ngIf="!autenticado" (click)="login()">Iniciar sesión</button>
+  <button *ngIf="autenticado" (click)="logout()">Cerrar sesión</button>
+</nav>

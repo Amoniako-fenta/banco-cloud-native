@@ -1,0 +1,33 @@
+<section class="contenedor">
+  <h2>Cajeros automáticos</h2>
+
+  <div class="filtros">
+    <input type="text" placeholder="Comuna" [(ngModel)]="filtroComuna" />
+    <input type="text" placeholder="Región" [(ngModel)]="filtroRegion" />
+    <button (click)="buscar()">Buscar</button>
+  </div>
+
+  <p *ngIf="cargando">Cargando...</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table *ngIf="!cargando && cajeros.length">
+    <thead>
+      <tr>
+        <th>Nombre</th><th>Dirección</th><th>Comuna</th><th>Región</th><th>Horario</th><th>Sucursal</th><th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cajeros">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.direccion }}</td>
+        <td>{{ c.comuna }}</td>
+        <td>{{ c.region }}</td>
+        <td>{{ c.horarioApertura }} - {{ c.horarioCierre }}</td>
+        <td>{{ c.sucursalId }}</td>
+        <td>{{ c.activo ? 'Activo' : 'Inactivo' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!cargando && !cajeros.length && !error">No hay cajeros para mostrar.</p>
+</section>

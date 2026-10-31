@@ -1,0 +1,15 @@
+**/target/
+**/.idea/
+**/.classpath
+**/.project
+**/.settings/
+
+node_modules/
+dist/
+.angular/
+
+.env
+*.pem
+*.key
+
+.vscode/

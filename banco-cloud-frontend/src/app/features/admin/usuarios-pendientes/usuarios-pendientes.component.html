@@ -1,0 +1,23 @@
+<section class="contenedor">
+  <h2>Usuarios pendientes de autorización</h2>
+
+  <p *ngIf="cargando">Cargando...</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table *ngIf="!cargando && usuarios.length">
+    <thead><tr><th>Nombre</th><th>Email</th><th></th></tr></thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios">
+        <td>{{ u.nombre }}</td>
+        <td>{{ u.email }}</td>
+        <td>
+          <button (click)="autorizar(u)" [disabled]="procesandoId === u.id">
+            {{ procesandoId === u.id ? 'Autorizando...' : 'Autorizar' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!cargando && !usuarios.length && !error">No hay usuarios pendientes.</p>
+</section>

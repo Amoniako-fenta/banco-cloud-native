@@ -1,0 +1,16 @@
+services:
+  banco-cloud-db:
+    image: postgres:16
+    container_name: banco-cloud-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: banco_cloud
+      POSTGRES_USER: bancocloud
+      POSTGRES_PASSWORD: BancoCloud123
+    ports:
+      - "5433:5432"
+    volumes:
+      - banco_cloud_db_data:/var/lib/postgresql/data
+ 
+volumes:
+  banco_cloud_db_data:

@@ -1,0 +1,7 @@
+.contenedor { padding: 1.5rem; }
+.filtros { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.filtros input { padding: .4rem .6rem; border: 1px solid #ccc; border-radius: .3rem; }
+.filtros button { padding: .4rem .9rem; background: #2f6fed; color: #fff; border: none; border-radius: .3rem; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #e2e2e2; }
+.error { color: #c0392b; }

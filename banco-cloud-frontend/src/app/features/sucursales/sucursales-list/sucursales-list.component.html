@@ -1,0 +1,32 @@
+<section class="contenedor">
+  <h2>Sucursales</h2>
+
+  <div class="filtros">
+    <input type="text" placeholder="Comuna" [(ngModel)]="filtroComuna" />
+    <input type="text" placeholder="Región" [(ngModel)]="filtroRegion" />
+    <button (click)="buscar()">Buscar</button>
+  </div>
+
+  <p *ngIf="cargando">Cargando...</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table *ngIf="!cargando && sucursales.length">
+    <thead>
+      <tr>
+        <th>Nombre</th><th>Dirección</th><th>Comuna</th><th>Región</th><th>Horario</th><th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of sucursales">
+        <td>{{ s.nombre }}</td>
+        <td>{{ s.direccion }}</td>
+        <td>{{ s.comuna }}</td>
+        <td>{{ s.region }}</td>
+        <td>{{ s.horarioApertura }} - {{ s.horarioCierre }}</td>
+        <td>{{ s.activa ? 'Activa' : 'Inactiva' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!cargando && !sucursales.length && !error">No hay sucursales para mostrar.</p>
+</section>
